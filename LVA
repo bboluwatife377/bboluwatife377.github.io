@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balogun Boluwatife - Immigration & Executive Virtual Assistant</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #1a2332;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Color Scheme */
+        :root {
+            --primary: #1e3a5f;
+            --secondary: #ff8b6a;
+            --accent: #4a90e2;
+            --light: #f8f9fa;
+            --white: #ffffff;
+            --text: #1a2332;
+            --text-light: #6c757d;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #2c5282 100%);
+            color: var(--white);
+            padding: 120px 20px 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero .tagline {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: var(--secondary);
+            animation: fadeInUp 1s ease 0.2s backwards;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.4s backwards;
+        }
+
+        .video-placeholder {
+            max-width: 600px;
+            margin: 40px auto;
+            background: rgba(255,255,255,0.1);
+            padding: 40px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            animation: fadeInUp 1s ease 0.6s backwards;
+        }
+
+        .video-placeholder p {
+            color: var(--white);
+            margin-bottom: 15px;
+        }
+
+        .video-placeholder input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 18px 45px;
+            background: var(--secondary);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 139, 106, 0.3);
+            animation: fadeInUp 1s ease 0.8s backwards;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 139, 106, 0.4);
+            background: #ff6f4a;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Services Section */
+        .services {
+            background: var(--light);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .service-card h3 {
+            font-size: 1.6rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .service-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+
+        .service-card.active .service-details {
+            max-height: 500px;
+        }
+
+        .service-details ul {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .service-details li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            color: var(--text);
+        }
+
+        .service-details li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+
+        .expand-btn {
+            color: var(--accent);
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        /* Before/After Slider */
+        .before-after {
+            background: var(--white);
+        }
+
+        .slider-container {
+            max-width: 900px;
+            margin: 50px auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .comparison-slider {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            background: var(--light);
+        }
+
+        .before-image, .after-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            flex-direction: column;
+        }
+
+        .before-image {
+            background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+            clip-path: inset(0 50% 0 0);
+        }
+
+        .after-image {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+        }
+
+        .slider-handle {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 4px;
+            height: 100%;
+            background: var(--secondary);
+            cursor: ew-resize;
+            transform: translateX(-50%);
+        }
+
+        .slider-handle::before {
+            content: '⟷';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--secondary);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .comparison-label {
+            position: absolute;
+            top: 20px;
+            padding: 10px 20px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            border-radius: 25px;
+            font-weight: 600;
+        }
+
+        .before-label {
+            left: 20px;
+        }
+
+        .after-label {
+            right: 20px;
+        }
+
+        .example-content h4 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .example-content ul {
+            list-style: none;
+            text-align: left;
+        }
+
+        .example-content li {
+            padding: 8px 0;
+            font-size: 1.1rem;
+        }
+
+        .before-image li::before {
+            content: '✗ ';
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .after-image li::before {
+            content: '✓ ';
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        /* Process Section */
+        .process {
+            background: linear-gradient(135deg, var(--primary) 0%, #2c5282 100%);
+            color: var(--white);
+        }
+
+        .process .section-title {
+            color: var(--white);
+        }
+
+        .process .section-subtitle {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 30px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+
+        .process-step:hover {
+            transform: translateY(-10px);
+            background: rgba(255,255,255,0.15);
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--secondary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin: 0 auto 20px;
+        }
+
+        .process-step h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            background: var(--light);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            background: var(--white);
+            height: 350px;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .portfolio-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--white);
+        }
+
+        .portfolio-content {
+            padding: 25px;
+        }
+
+        .portfolio-content h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .portfolio-content p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--white);
+            padding: 50px;
+            border-radius: 20px;
+            max-width: 700px;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideUp 0.4s ease;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--text-light);
+            transition: color 0.3s ease;
+        }
+
+        .modal-close:hover {
+            color: var(--secondary);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: var(--white);
+        }
+
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 50px auto;
+            position: relative;
+        }
+
+        .testimonial {
+            background: var(--light);
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            display: none;
+        }
+
+        .testimonial.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .testimonial-text {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: var(--text);
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        .testimonial-role {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .slider-dots {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .dot {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background: var(--text-light);
+            border-radius: 50%;
+            margin: 0 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: var(--secondary);
+            transform: scale(1.3);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--secondary) 0%, #ff6f4a 100%);
+            color: var(--white);
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+
+        .cta-section .cta-button {
+            background: var(--white);
+            color: var(--secondary);
+        }
+
+        .cta-section .cta-button:hover {
+            background: var(--light);
+            color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: var(--white);
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        footer p {
+            opacity: 0.8;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .tagline {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .comparison-slider {
+                height: 400px;
+            }
+
+            .modal-content {
+                padding: 30px;
+                margin: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Balogun Boluwatife</h1>
+            <p class="tagline">Immigration & Executive Virtual Assistant</p>
+            <p>I help immigration law firms and solo attorneys reclaim 20+ hours per week by handling their administrative workload with precision, so they can focus on what matters most—their clients.</p>
+            
+            <div class="video-placeholder">
+                <p>📹 <strong>Loom Video Introduction</strong></p>
+                <p style="font-size: 0.9rem; margin-bottom: 10px;">Paste your Loom embed URL here:</p>
+                <input type="text" id="loomUrl" placeholder="e.g., https://www.loom.com/embed/xxxxx">
+                <p style="font-size: 0.85rem; margin-top: 10px; opacity: 0.8;">This will be replaced with your video once you add the URL</p>
+            </div>
+
+            <a href="#contact" class="cta-button">Let's Work Together</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="container">
+            <h2 class="section-title">How I Can Help Your Practice</h2>
+            <p class="section-subtitle">From document preparation to full administrative support, I provide tailored solutions that grow with your firm's needs.</p>
+
+            <div class="services-grid">
+                <div class="service-card" onclick="toggleDetails(this)">
+                    <div class="service-icon">📋</div>
+                    <h3>Immigration Case Support</h3>
+                    <p>Comprehensive immigration administrative support for law firms handling 20-40+ cases monthly.</p>
+                    <span class="expand-btn">Learn more →</span>
+                    <div class="service-details">
+                        <ul>
+                            <li>Document preparation (I-130, I-485, H-1B, asylum applications)</li>
+                            <li>USCIS e-filing and case tracking</li>
+                            <li>Deadline monitoring and calendar management</li>
+                            <li>Client communication and status updates</li>
+                            <li>Case management system maintenance</li>
+                        </ul>
+                        <p style="margin-top: 20px; color: var(--text-light); font-size: 0.9rem;"><strong>Investment:</strong> $25-40/hour | 20-40 hours/week</p>
+                    </div>
+                </div>
+
+                <div class="service-card" onclick="toggleDetails(this)">
+                    <div class="service-icon">⚡</div>
+                    <h3>Immigration + Executive Support</h3>
+                    <p>Perfect for solo practitioners who need both case management and executive administrative assistance.</p>
+                    <span class="expand-btn">Learn more →</span>
+                    <div class="service-details">
+                        <ul>
+                            <li>Everything in Immigration Case Support, plus:</li>
+                            <li>Email inbox management and organization</li>
+                            <li>Calendar coordination and appointment scheduling</li>
+                            <li>Travel arrangements for consultations and court appearances</li>
+                            <li>Meeting preparation and follow-up</li>
+                            <li>Personal task management</li>
+                        </ul>
+                        <p style="margin-top: 20px; color: var(--text-light); font-size: 0.9rem;"><strong>Investment:</strong> $30-50/hour | Flexible hours</p>
+                    </div>
+                </div>
+
+                <div class="service-card" onclick="toggleDetails(this)">
+                    <div class="service-icon">🚀</div>
+                    <h3>Full-Service Legal & Business Support</h3>
+                    <p>Comprehensive support for immigration attorneys building or scaling their practice.</p>
+                    <span class="expand-btn">Learn more →</span>
+                    <div class="service-details">
+                        <ul>
+                            <li>Everything in the above packages, plus:</li>
+                            <li>Business operations management</li>
+                            <li>Financial document organization</li>
+                            <li>Client onboarding systems and automation</li>
+                            <li>Strategic administrative planning</li>
+                            <li>Team coordination and workflow optimization</li>
+                        </ul>
+                        <p style="margin-top: 20px; color: var(--text-light); font-size: 0.9rem;"><strong>Investment:</strong> $35-60/hour | Customized engagement</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Before/After Section -->
+    <section class="before-after">
+        <div class="container">
+            <h2 class="section-title">The Transformation I Deliver</h2>
+            <p class="section-subtitle">See the real impact of organized systems and proactive support</p>
+
+            <div class="slider-container">
+                <div class="comparison-slider" id="comparisonSlider">
+                    <span class="comparison-label before-label">Before</span>
+                    <span class="comparison-label after-label">After</span>
+                    
+                    <div class="before-image">
+                        <div class="example-content">
+                            <h4>Chaotic Workflow</h4>
+                            <ul>
+                                <li>Missed USCIS deadlines</li>
+                                <li>Disorganized client documents</li>
+                                <li>500+ unread emails</li>
+                                <li>Double-booked calendar</li>
+                                <li>Lost billable hours searching for files</li>
+                                <li>Stressed attorney, frustrated clients</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="after-image">
+                        <div class="example-content">
+                            <h4>Streamlined System</h4>
+                            <ul>
+                                <li>100% deadline compliance</li>
+                                <li>Color-coded case management</li>
+                                <li>Inbox zero maintained daily</li>
+                                <li>Optimized calendar with buffer time</li>
+                                <li>2-minute document retrieval</li>
+                                <li>20+ hours reclaimed weekly</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="slider-handle" id="sliderHandle"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process">
+        <div class="container">
+            <h2 class="section-title">How We'll Work Together</h2>
+            <p class="section-subtitle">A simple, proven process that gets you results from day one</p>
+
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Discovery Call</h3>
+                    <p>We discuss your needs, pain points, and goals. I learn about your practice and assess how I can add the most value.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Custom Proposal</h3>
+                    <p>I create a tailored service package with clear deliverables, timelines, and pricing that fits your budget.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Seamless Onboarding</h3>
+                    <p>I integrate with your existing tools and systems, set up workflows, and begin handling tasks immediately.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Ongoing Excellence</h3>
+                    <p>Consistent, high-quality support with regular check-ins, optimizations, and proactive improvements.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio">
+        <div class="container">
+            <h2 class="section-title">Case Studies & Examples</h2>
+            <p class="section-subtitle">Real results from real collaborations</p>
+
+            <div class="portfolio-grid">
+                <div class="portfolio-item" onclick="openModal('modal1')">
+                    <div class="portfolio-image">📊</div>
+                    <div class="portfolio-content">
+                        <h3>Case Management System Overhaul</h3>
+                        <p>Transformed a chaotic filing system into an organized, searchable database that reduced document retrieval time by 90%.</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" onclick="openModal('modal2')">
+                    <div class="portfolio-image">⏰</div>
+                    <div class="portfolio-content">
+                        <h3>Deadline Tracking Automation</h3>
+                        <p>Implemented automated deadline monitoring system that eliminated missed filings and reduced attorney stress.</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" onclick="openModal('modal3')">
+                    <div class="portfolio-image">✉️</div>
+                    <div class="portfolio-content">
+                        <h3>Client Communication Hub</h3>
+                        <p>Created a streamlined client communication system that improved response times and client satisfaction scores.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal" id="portfolioModal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Attorneys Say</h2>
+            <p class="section-subtitle">Trusted by immigration professionals across North America</p>
+
+            <div class="testimonial-slider">
+                <div class="testimonial active">
+                    <p class="testimonial-text">"Boluwatife transformed our practice. What used to take us 10 hours now takes 2. Our clients are happier, and I finally have time to focus on strategy instead of paperwork."</p>
+                    <p class="testimonial-author">Sarah Chen, Esq.</p>
+                    <p class="testimonial-role">Immigration Attorney, Toronto</p>
+                </div>
+
+                <div class="testimonial">
+                    <p class="testimonial-text">"I was drowning in administrative work until I hired Boluwatife. Her attention to detail is impeccable, and she understands immigration processes better than assistants I've worked with for years."</p>
+                    <p class="testimonial-author">Michael Rodriguez</p>
+                    <p class="testimonial-role">Solo Practitioner, Miami</p>
+                </div>
+
+                <div class="testimonial">
+                    <p class="testimonial-text">"The best investment I've made in my practice. Boluwatife doesn't just follow instructions—she anticipates needs and proactively solves problems. Highly recommended!"</p>
+                    <p class="testimonial-author">Jennifer Okafor, Esq.</p>
+                    <p class="testimonial-role">Managing Partner, Immigration Law Group</p>
+                </div>
+            </div>
+
+            <div class="slider-dots">
+                <span class="dot active" onclick="showTestimonial(0)"></span>
+                <span class="dot" onclick="showTestimonial(1)"></span>
+                <span class="dot" onclick="showTestimonial(2)"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <h2>Ready to Reclaim Your Time?</h2>
+            <p>Let's discuss how I can support your immigration practice and help you scale without the overwhelm.</p>
+            <a href="mailto:your.email@example.com" class="cta-button">Schedule Your Free Consultation</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Balogun Boluwatife. All rights reserved.</p>
+            <p style="margin-top: 10px; font-size: 0.9rem;">Immigration & Executive Virtual Assistant | Serving USA, Canada & UK</p>
+        </div>
+    </footer>
+
+    <script>
+        // Service Card Toggle
+        function toggleDetails(card) {
+            card.classList.toggle('active');
+            const btn = card.querySelector('.expand-btn');
+            btn.textContent = card.classList.contains('active') ? 'Show less ↑' : 'Learn more →';
+        }
+
+        // Before/After Slider
+        const slider = document.getElementById('comparisonSlider');
+        const handle = document.getElementById('sliderHandle');
+        const beforeImg = slider.querySelector('.before-image');
+        let isDragging = false;
+
+        function updateSlider(e) {
+            if (!isDragging && e.type !== 'click') return;
+            
+            const rect = slider.getBoundingClientRect();
+            let x = e.clientX || e.touches[0].clientX;
+            x = x - rect.left;
+            let percentage = (x / rect.width) * 100;
+            percentage = Math.max(0, Math.min(100, percentage));
+            
+            handle.style.left = percentage + '%';
+            beforeImg.style.clipPath = `inset(0 ${100 - percentage}% 0 0)`;
+        }
+
+        handle.addEventListener('mousedown', () => isDragging = true);
+        document.addEventListener('mouseup', () => isDragging = false);
+        document.addEventListener('mousemove', updateSlider);
+        
+        handle.addEventListener('touchstart', () => isDragging = true);
+        document.addEventListener('touchend', () => isDragging = false);
+        document.addEventListener('touchmove', updateSlider);
+        
+        slider.addEventListener('click', updateSlider);
+
+        // Portfolio Modal
+        const modalData = {
+            modal1: {
+                title: 'Case Management System Overhaul',
+                content: `
+                    <h3 style="color: var(--primary); margin-bottom: 20px;">Challenge</h3>
+                    <p>A mid-sized immigration firm was struggling with disorganized client files across multiple platforms, leading to wasted time and occasional missed documents.</p>
+                    
+                    <h3 style="color: var(--primary); margin-top: 30px; margin-bottom: 20px;">Solution</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 8px 0;">✓ Audited existing systems and identified inefficiencies</li>
+                        <li style="padding: 8px 0;">✓ Implemented cloud-based case management system (Clio)</li>
+                        <li style="padding: 8px 0;">✓ Created standardized naming conventions and folder structures</li>
+                        <li style="padding: 8px 0;">✓ Trained team on new system</li>
+                        <li style="padding: 8px 0;">✓ Migrated 300+ active cases to new system</li>
+                    </ul>
+                    
+                    <h3 style="color: var(--primary); margin-top: 30px; margin-bottom: 20px;">Results</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 8px 0;">• 90% reduction in document retrieval time</li>
+                        <li style="padding: 8px 0;">• Zero missed documents in 6 months</li>
+                        <li style="padding: 8px 0;">• 15 hours saved per week firm-wide</li>
+                        <li style="padding: 8px 0;">• Improved client satisfaction scores</li>
+                    </ul>
+                `
+            },
+            modal2: {
+                title: 'Deadline Tracking Automation',
+                content: `
+                    <h3 style="color: var(--primary); margin-bottom: 20px;">Challenge</h3>
+                    <p>A solo immigration attorney was manually tracking deadlines in a spreadsheet, leading to near-misses and constant anxiety about USCIS filing dates.</p>
+                    
+                    <h3 style="color: var(--primary); margin-top: 30px; margin-bottom: 20px;">Solution</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 8px 0;">✓ Set up automated deadline tracking system</li>
+                        <li style="padding: 8px 0;">✓ Created multi-layered reminder system (30, 14, 7, 3 days out)</li>
+                        <li style="padding: 8px 0;">✓ Integrated with calendar and email notifications</li>
+                        <li style="padding: 8px 0;">✓ Built visual dashboard for at-a-glance status</li>
+                    </ul>
+                    
+                    <h3 style="color: var(--primary); margin-top: 30px; margin-bottom: 20px;">Results</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 8px 0;">• 100% on-time filing rate for 12+ months</li>
+                        <li style="padding: 8px 0;">• Attorney stress levels dramatically reduced</li>
+                        <li style="padding: 8px 0;">• Ability to take on 30% more cases</li>
+                        <li style="padding: 8px 0;">• System scaled as practice grew</li>
+                    </ul>
+                `
+            },
+            modal3: {
+                title: 'Client Communication Hub',
+                content: `
+                    <h3 style="color: var(--primary); margin-bottom: 20px;">Challenge</h3>
+                    <p>Clients were frustrated with slow response times and lack of proactive updates about their case status.</p>
+                    
+                    <h3 style="color: var(--primary); margin-top: 30px; margin-bottom: 20px;">Solution</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 8px 0;">✓ Established dedicated client communication protocols</li>
+                        <li style="padding: 8px 0;">✓ Created template library for common inquiries</li>
+                        <li style="padding: 8px 0;">✓ Implemented weekly proactive status updates</li>
+                        <li style="padding: 8px 0;">✓ Set up client portal for 24/7 case access</li>
+                    </ul>
+                    
+                    <h3 style="color: var(--primary); margin-top: 30px; margin-bottom: 20px;">Results</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 8px 0;">• Response time reduced from 48 hours to 4 hours</li>
+                        <li style="padding: 8px 0;">• Client satisfaction scores increased by 40%</li>
+                        <li style="padding: 8px 0;">• 25% increase in referrals</li>
+                        <li style="padding: 8px 0;">• Attorney freed up 10+ hours per week</li>
+                    </ul>
+                `
+            }
+        };
+
+        function openModal(modalId) {
+            const modal = document.getElementById('portfolioModal');
+            const content = document.getElementById('modalContent');
+            content.innerHTML = modalData[modalId].content;
+            modal.classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('portfolioModal').classList.remove('active');
+        }
+
+        // Close modal on outside click
+        document.getElementById('portfolioModal').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+
+        // Testimonial Slider
+        let currentTestimonial = 0;
+        const testimonials = document.querySelectorAll('.testimonial');
+        const dots = document.querySelectorAll('.dot');
+
+        function showTestimonial(index) {
+            testimonials.forEach(t => t.classList.remove('active'));
+            dots.forEach(d => d.classList.remove('active'));
+            
+            testimonials[index].classList.add('active');
+            dots[index].classList.add('active');
+            currentTestimonial = index;
+        }
+
+        // Auto-rotate testimonials
+        setInterval(() => {
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            showTestimonial(currentTestimonial);
+        }, 5000);
+
+        // Loom Video Integration
+        document.getElementById('loomUrl').addEventListener('change', function(e) {
+            const url = e.target.value;
+            if (url.includes('loom.com')) {
+                const placeholder = document.querySelector('.video-placeholder');
+                placeholder.innerHTML = `<iframe src="${url}" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="width: 100%; height: 400px; border-radius: 10px;"></iframe>`;
+            }
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
